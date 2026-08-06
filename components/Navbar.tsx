@@ -46,23 +46,37 @@ export default function Navbar() {
         {/* Action Controls */}
         <div className="flex items-center gap-3">
           {/* Language Switcher */}
-          <div className="flex items-center gap-1 p-1 rounded-lg border border-border-subtle text-xs font-medium bg-surface-card/60 backdrop-blur-xs">
+          <div className={`flex items-center gap-1 p-1 rounded-lg text-xs font-medium border transition-colors ${
+            theme === 'light'
+              ? 'bg-slate-100 border-slate-300'
+              : 'bg-zinc-900 border-zinc-800'
+          }`}>
             <button
               onClick={() => setLanguage('PT')}
-              className={`px-2 py-0.5 rounded-md transition-all cursor-pointer ${language === 'PT'
-                  ? 'bg-primary text-white font-bold shadow-xs'
-                  : 'text-on-surface-variant hover:text-primary'
-                }`}
+              className={`px-2.5 py-1 rounded-md transition-all cursor-pointer text-xs font-semibold ${
+                language === 'PT'
+                  ? theme === 'light'
+                    ? 'bg-blue-600 text-white shadow-xs font-bold'
+                    : 'bg-blue-500 text-white shadow-xs font-bold'
+                  : theme === 'light'
+                    ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                    : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
+              }`}
               title="Português"
             >
               PT
             </button>
             <button
               onClick={() => setLanguage('EN')}
-              className={`px-2 py-0.5 rounded-md transition-all cursor-pointer ${language === 'EN'
-                  ? 'bg-primary text-white font-bold shadow-xs'
-                  : 'text-on-surface-variant hover:text-primary'
-                }`}
+              className={`px-2.5 py-1 rounded-md transition-all cursor-pointer text-xs font-semibold ${
+                language === 'EN'
+                  ? theme === 'light'
+                    ? 'bg-blue-600 text-white shadow-xs font-bold'
+                    : 'bg-blue-500 text-white shadow-xs font-bold'
+                  : theme === 'light'
+                    ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                    : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
+              }`}
               title="English"
             >
               EN
