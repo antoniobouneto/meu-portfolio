@@ -287,29 +287,46 @@ export default function ResumeModal() {
 
         {/* Footer */}
         <div
-          className="flex items-center justify-between gap-3 px-6 py-4"
+          className="flex flex-col sm:flex-row items-center justify-between gap-3 px-6 py-4"
           style={{ borderTop: isLight ? '1px solid #e2e8f0' : '1px solid #2a2a2a' }}
         >
           <span className="text-xs flex items-center gap-1.5" style={{ color: isLight ? '#64748b' : '#666666' }}>
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
             {isEn ? 'Available for opportunities' : 'Disponível para oportunidades'}
           </span>
-          <button
-            onClick={() => {
-              window.open('/cv.pdf', '_blank');
-              setIsResumeModalOpen(false);
-            }}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer active:scale-95 shadow-sm"
-            style={{
-              background: isLight ? '#2563eb' : '#adc6ff',
-              color: isLight ? '#ffffff' : '#161616'
-            }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = '0.9')}
-            onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-          >
-            <Download className="w-3.5 h-3.5" />
-            Download PDF
-          </button>
+          
+          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+            <a
+              href="/curriculo-pt.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Antonio_Boucinhas_CV_PT.pdf"
+              className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer shadow-xs border"
+              style={{
+                background: isLight ? '#f1f5f9' : '#222222',
+                color: isLight ? '#0f172a' : '#ffffff',
+                borderColor: isLight ? '#cbd5e1' : '#333333'
+              }}
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>PDF (PT)</span>
+            </a>
+
+            <a
+              href="/curriculo-en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Antonio_Boucinhas_CV_EN.pdf"
+              className="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer shadow-xs"
+              style={{
+                background: isLight ? '#2563eb' : '#adc6ff',
+                color: isLight ? '#ffffff' : '#161616'
+              }}
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>PDF (EN)</span>
+            </a>
+          </div>
         </div>
 
       </div>
