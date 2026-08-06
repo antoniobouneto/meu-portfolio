@@ -8,10 +8,11 @@ import { GithubIcon, LinkedinIcon } from '@/components/BrandIcons';
 import confetti from 'canvas-confetti';
 
 export default function ContactSection() {
-  const { t } = useApp();
+  const { t, language } = useApp();
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [sent, setSent] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,13 +68,23 @@ export default function ContactSection() {
           <LinkedinIcon className="w-5 h-5" />
         </a>
 
-        <a
-          href={personalInfo.socials.email}
-          className="p-3 rounded-full bg-surface-container-low hover:bg-surface-container border border-border-subtle hover:border-primary text-on-surface hover:text-primary transition-all cursor-pointer active:scale-95"
-          title="Email"
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            navigator.clipboard.writeText('antoniobneto11@gmail.com');
+            setCopiedEmail(true);
+            setTimeout(() => setCopiedEmail(false), 2500);
+          }}
+          className="p-3 rounded-full bg-surface-container-low hover:bg-surface-container border border-border-subtle hover:border-primary text-on-surface hover:text-primary transition-all cursor-pointer active:scale-95 relative group/mail"
+          title={copiedEmail ? (language === 'EN' ? 'Copied!' : 'Copiado!') : 'Email'}
         >
-          <Mail className="w-5 h-5" />
-        </a>
+          <Mail className={`w-5 h-5 ${copiedEmail ? 'text-emerald-500' : ''}`} />
+          <span className={`absolute -top-9 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded text-[10px] font-medium transition-opacity pointer-events-none whitespace-nowrap shadow-md ${
+            copiedEmail ? 'opacity-100 bg-emerald-600 text-white' : 'opacity-0 group-hover/mail:opacity-100 bg-on-surface text-background'
+          }`}>
+            {copiedEmail ? (language === 'EN' ? '✓ Copied!' : '✓ Copiado!') : 'antoniobneto11@gmail.com'}
+          </span>
+        </button>
       </div>
 
       {/* Direct Contact Form */}

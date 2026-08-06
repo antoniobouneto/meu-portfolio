@@ -5,7 +5,15 @@ import { useApp } from '@/context/AppContext';
 import { personalInfo } from '@/lib/data';
 
 export default function Footer() {
-  const { t } = useApp();
+  const { t, language } = useApp();
+  const [copied, setCopied] = React.useState(false);
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault();
+    navigator.clipboard.writeText('antoniobneto11@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
 
   return (
     <footer className="w-full py-12 bg-background border-t border-border-subtle transition-colors">
@@ -35,12 +43,12 @@ export default function Footer() {
           >
             {t.footer.linkedin}
           </a>
-          <a
-            href={personalInfo.socials.email}
-            className="text-text-muted hover:text-primary transition-colors"
+          <button
+            onClick={handleCopyEmail}
+            className="text-text-muted hover:text-primary transition-colors cursor-pointer relative"
           >
-            {t.footer.email}
-          </a>
+            {copied ? (language === 'EN' ? '✓ Copied!' : '✓ Copiado!') : t.footer.email}
+          </button>
         </div>
       </div>
     </footer>
