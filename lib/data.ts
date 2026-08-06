@@ -15,7 +15,7 @@ export const personalInfo = {
   socials: {
     github: 'https://github.com/antoniobouneto',
     linkedin: 'https://www.linkedin.com/in/antonio-boucinhas-neto/',
-    email: 'mailto:antonioboucinhas@gmail.com'
+    email: 'mailto:antoniobneto11@gmail.com'
   }
 };
 
@@ -159,7 +159,10 @@ export const translations = {
     contact: {
       title: 'Get in Touch',
       subtitle: "Interested in working together or have a query? Feel free to reach out and I'll respond as soon as possible.",
-      sendBtn: 'Send Message'
+      sendBtn: 'Send Message',
+      emailPlaceholder: 'Your Email address',
+      messagePlaceholder: 'Your Message...',
+      successMsg: 'Message processed! Opening your email app to send...'
     },
     footer: {
       copyright: '© 2026 Antonio Boucinhas Neto. Built with precision.',
@@ -201,7 +204,10 @@ export const translations = {
     contact: {
       title: 'Entrar em Contato',
       subtitle: 'Quer conversar ou propor uma oportunidade? Mande uma mensagem e responderei o mais rápido possível.',
-      sendBtn: 'Enviar Mensagem'
+      sendBtn: 'Enviar Mensagem',
+      emailPlaceholder: 'Seu E-mail',
+      messagePlaceholder: 'Sua Mensagem...',
+      successMsg: 'Mensagem pronta! Abrindo seu aplicativo de e-mail...'
     },
     footer: {
       copyright: '© 2026 Antonio Boucinhas Neto. Construído com precisão.',
