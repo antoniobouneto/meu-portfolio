@@ -294,7 +294,7 @@ export default function ResumeModal() {
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
             {isEn ? 'Available for opportunities' : 'Disponível para oportunidades'}
           </span>
-          
+
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
             <a
               href="/curriculo-pt.pdf"
