@@ -113,7 +113,7 @@ export const educationData: EducationItem[] = [
       EN: 'Bachelor of Computer Science (BS)',
       PT: 'Bacharelado em Ciência da Computação'
     },
-    period: '2023 - 2027 (Previsão)'
+    period: '2024 - 2028 (Previsão)'
   },
   {
     school: 'COTEMIG - Colégio e Faculdade',
