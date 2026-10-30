@@ -1,16 +1,12 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useApp } from '@/context/AppContext';
 import { personalInfo } from '@/lib/data';
-import { Mail, Send, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
+import { Mail, Send, CheckCircle2, Loader2, AlertCircle, ShieldCheck } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '@/components/BrandIcons';
 import confetti from 'canvas-confetti';
-import emailjs from '@emailjs/browser';
 
-// Rate limit: max 3 submissions per 5 minutes
-const RATE_LIMIT_MAX = 3;
-const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;
 const MAX_MESSAGE_LENGTH = 2000;
 
 export default function ContactSection() {
@@ -21,29 +17,15 @@ export default function ContactSection() {
   const [sent, setSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const submissionTimestamps = useRef<number[]>([]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !message || loading) return;
 
-    // Rate limiting check
-    const now = Date.now();
-    submissionTimestamps.current = submissionTimestamps.current.filter(
-      (ts) => now - ts < RATE_LIMIT_WINDOW_MS
-    );
-    if (submissionTimestamps.current.length >= RATE_LIMIT_MAX) {
-      setErrorMessage(
-        language === 'EN'
-          ? 'Too many messages sent. Please wait a few minutes before trying again.'
-          : 'Muitas mensagens enviadas. Aguarde alguns minutos antes de tentar novamente.'
-      );
-      return;
-    }
-
     // Input validation
     const trimmedMessage = message.trim();
     const trimmedEmail = email.trim();
+
     if (trimmedMessage.length < 10) {
       setErrorMessage(
         language === 'EN'
@@ -64,50 +46,45 @@ export default function ContactSection() {
     setLoading(true);
     setErrorMessage('');
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-    // Fallback to mailto if env variables are not yet set
-    if (!serviceId || !templateId || !publicKey) {
-      const mailtoSubject = encodeURIComponent(`Contato via Portfólio — ${trimmedEmail}`);
-      const mailtoBody = encodeURIComponent(`E-mail do Remetente: ${trimmedEmail}\n\nMensagem:\n${trimmedMessage}`);
-      
-      window.location.href = `mailto:antoniobneto11@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
-
-      setSent(true);
-      confetti({
-        particleCount: 70,
-        spread: 70,
-        origin: { y: 0.7 },
-        colors: ['#adc6ff', '#3b82f6', '#10b981'],
+    try {
+      // Call protected API route with Valkey/Redis rate-limiting
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: trimmedEmail,
+          message: trimmedMessage,
+        }),
       });
 
-      setEmail('');
-      setMessage('');
-      setLoading(false);
-      setTimeout(() => setSent(false), 6000);
-      return;
-    }
+      const data = await res.json().catch(() => null);
 
-    try {
-      await emailjs.send(
-        serviceId.trim(),
-        templateId.trim(),
-        {
-          from_name: trimmedEmail,
-          from_email: trimmedEmail,
-          user_email: trimmedEmail,
-          email: trimmedEmail,
-          reply_to: trimmedEmail,
-          message: trimmedMessage,
-          to_email: 'antoniobneto11@gmail.com',
-        },
-        publicKey.trim()
-      );
+      if (res.status === 429) {
+        const waitMinutes = data?.retryAfter ? Math.ceil(data.retryAfter / 60) : 10;
+        setErrorMessage(
+          language === 'EN'
+            ? (data?.error || `Too many messages sent. Please wait ~${waitMinutes} minute(s) before trying again.`)
+            : (data?.errorPT || `Muitas mensagens enviadas. Aguarde ~${waitMinutes} minuto(s) antes de tentar novamente.`)
+        );
+        return;
+      }
 
-      // Track successful submission for rate limiting
-      submissionTimestamps.current.push(Date.now());
+      if (!res.ok) {
+        setErrorMessage(
+          language === 'EN'
+            ? (data?.error || 'Failed to send message. Please try again later.')
+            : (data?.errorPT || 'Erro ao enviar mensagem. Tente novamente mais tarde.')
+        );
+        return;
+      }
+
+      if (data?.fallbackToMailto) {
+        const mailtoSubject = encodeURIComponent(`Contato via Portfólio — ${trimmedEmail}`);
+        const mailtoBody = encodeURIComponent(`E-mail do Remetente: ${trimmedEmail}\n\nMensagem:\n${trimmedMessage}`);
+        window.location.href = `mailto:antoniobneto11@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+      }
 
       setSent(true);
       confetti({
@@ -121,19 +98,11 @@ export default function ContactSection() {
       setMessage('');
       setTimeout(() => setSent(false), 6000);
     } catch (err: unknown) {
-      console.warn('EmailJS response error:', err);
-      
-      const emailjsErr = err as { status?: number; text?: string; message?: string };
-      const status = emailjsErr?.status ? `[Status ${emailjsErr.status}] ` : '';
-      const text = emailjsErr?.text || emailjsErr?.message || '';
-      const fullError = `${status}${text}`.trim();
-
+      console.warn('Contact API error:', err);
       setErrorMessage(
-        fullError
-          ? `EmailJS Error: ${fullError}`
-          : (language === 'EN'
-              ? 'Failed to send email. Please try again later.'
-              : 'Erro ao enviar e-mail. Tente novamente mais tarde.')
+        language === 'EN'
+          ? 'Failed to send email. Please check your connection and try again.'
+          : 'Erro ao enviar e-mail. Verifique sua conexão e tente novamente.'
       );
     } finally {
       setLoading(false);
@@ -242,6 +211,16 @@ export default function ContactSection() {
             </>
           )}
         </button>
+
+        {/* Rate Limiting / Cache Badge */}
+        <div className="text-[11px] text-text-muted flex items-center justify-center gap-1.5 pt-2">
+          <ShieldCheck className="w-3.5 h-3.5 text-primary shrink-0" />
+          <span>
+            {language === 'EN'
+              ? 'Protected by Valkey / Redis rate-limiting cache'
+              : 'Protegido por rate limiting com cache Valkey / Redis'}
+          </span>
+        </div>
       </form>
     </section>
   );
