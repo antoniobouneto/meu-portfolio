@@ -7,8 +7,8 @@ export const personalInfo = {
     PT: 'Desenvolvedor Full Stack'
   },
   about: {
-    EN: 'I work as a Full Stack Developer at Teknisa, developing high-complexity enterprise systems with the Zeedhi-next framework. On a daily basis, I focus on building dynamic and intuitive interfaces using TypeScript and JavaScript, always integrated with PHP backends and Oracle SQL / PostgreSQL databases. Extensive experience in creating complex screens, dynamic grids, advanced filters, and implementing business logic with strong UI/UX principles.\n\nKey Technologies:\n• Frontend: TypeScript, JavaScript, React.js, Next.js, HTML5, CSS.\n• Backend: PHP, Java Spring Boot, C#, .NET.\n• Database: Oracle SQL, PostgreSQL, PL/SQL.\n\nSolid background in REST API integration, JSON payload manipulation, legacy code refactoring, and Agile methodologies (Scrum and Kanban). Currently pursuing a Bachelor degree in Computer Science at Dom Helder (expected graduation 2027) with technical IT degree from COTEMIG.',
-    PT: 'Atuo como Desenvolvedor Full Stack na Teknisa, onde trabalho no desenvolvimento de sistemas corporativos de alta complexidade com o framework Zeedhi-next. No dia a dia, me dedico a construir interfaces dinâmicas e intuitivas usando TypeScript e JavaScript, sempre integradas a back-ends em PHP e bancos Oracle SQL. Tenho bastante experiência na criação de telas complexas, grids dinâmicos, filtros avançados e na implementação de regras de negócio, sempre com foco forte em boa experiência do usuário (UI/UX).\n\nPrincipais tecnologias que trabalho:\n• Front-end: TypeScript, JavaScript, React.js, Next.js, HTML5 e CSS.\n• Back-end: PHP, Java Spring Boot, C# e .NET.\n• Banco de Dados: Oracle SQL e PostgreSQL, modelagem de dados e PL/SQL.\n\nTenho sólida vivência com integração de APIs REST, manipulação de JSON, refatoração de código legado e metodologias ágeis (Scrum e Kanban). Sou graduando em Ciência da Computação pela Dom Helder (previsão 2027) e tenho formação técnica em TI pelo COTEMIG.'
+    EN: 'I work as a Full Stack Developer at Teknisa, developing high-complexity enterprise systems with the Zeedhi-next framework. On a daily basis, I focus on building dynamic and intuitive interfaces using TypeScript and JavaScript, always integrated with PHP backends and Oracle SQL / PostgreSQL databases. Extensive experience in creating complex screens, dynamic grids, advanced filters, and implementing business logic with strong UI/UX principles.\n\nKey Technologies:\n• Frontend: TypeScript, JavaScript, React.js, Next.js, HTML5, CSS.\n• Backend: PHP, Java Spring Boot, C#, .NET.\n• Database: Oracle SQL, PostgreSQL, PL/SQL.\n\nSolid background in REST API integration, JSON payload manipulation, legacy code refactoring, and Agile methodologies (Scrum and Kanban). Currently pursuing a Bachelor degree in Computer Science at Dom Helder (expected graduation 2028) with technical IT degree from COTEMIG.',
+    PT: 'Atuo como Desenvolvedor Full Stack na Teknisa, onde trabalho no desenvolvimento de sistemas corporativos de alta complexidade com o framework Zeedhi-next. No dia a dia, me dedico a construir interfaces dinâmicas e intuitivas usando TypeScript e JavaScript, sempre integradas a back-ends em PHP e bancos Oracle SQL. Tenho bastante experiência na criação de telas complexas, grids dinâmicos, filtros avançados e na implementação de regras de negócio, sempre com foco forte em boa experiência do usuário (UI/UX).\n\nPrincipais tecnologias que trabalho:\n• Front-end: TypeScript, JavaScript, React.js, Next.js, HTML5 e CSS.\n• Back-end: PHP, Java Spring Boot, C# e .NET.\n• Banco de Dados: Oracle SQL e PostgreSQL, modelagem de dados e PL/SQL.\n\nTenho sólida vivência com integração de APIs REST, manipulação de JSON, refatoração de código legado e metodologias ágeis (Scrum e Kanban). Sou graduando em Ciência da Computação pela Dom Helder (previsão 2028) e tenho formação técnica em TI pelo COTEMIG.'
   },
   avatar: '/images/eu.png',
   resumeUrl: '#',
@@ -69,39 +69,36 @@ export const experienceData: ExperienceItem[] = [
 
 export const projectsData: Project[] = [
   {
-    id: 'aws-cloud-foundations',
-    title: 'AWS Cloud Architecture & Infrastructure',
+    id: 'java-next',
+    title: 'Java & Next.js Full Stack App',
     description: {
-      EN: 'Certified AWS Academy Cloud Foundations project covering cloud architecture, EC2, S3 storage, RDS databases, auto-scaling, and security best practices.',
-      PT: 'Projeto e formação com certificação AWS Academy Cloud Foundations, englobando arquitetura em nuvem, EC2, S3, bancos RDS, auto-scaling e segurança.'
+      EN: 'Full-stack enterprise application integrating a modern Next.js frontend with a robust Java Spring Boot backend, featuring REST API communication, type safety, and clean architecture.',
+      PT: 'Aplicação full stack integrando front-end moderno em Next.js com back-end em Java Spring Boot, com consumo de APIs REST, tipagem estrita e arquitetura limpa.'
     },
-    tags: ['AWS', 'Cloud Computing', 'EC2', 'S3', 'Security'],
-    href: 'https://github.com/antoniobouneto',
-    codeHref: 'https://github.com/antoniobouneto',
+    tags: ['Java', 'Spring Boot', 'Next.js', 'TypeScript', 'REST API'],
+    codeHref: 'https://github.com/antoniobouneto/java-next',
     featured: true
   },
   {
-    id: 'fullstack-zeedhi-php',
-    title: 'Enterprise Web Application Engine',
+    id: 'calendar-app',
+    title: 'Calendar & Scheduling App',
     description: {
-      EN: 'Full-stack enterprise application built with TypeScript, Zeedhi-next, PHP backend REST APIs, and Oracle SQL / PostgreSQL database integration.',
-      PT: 'Aplicação web corporativa desenvolvida em TypeScript com Zeedhi-next, integrando APIs em PHP e bancos de dados Oracle SQL e PostgreSQL.'
+      EN: 'Interactive calendar and scheduling application with responsive UI, dynamic event management, intuitive state handling, and seamless user experience.',
+      PT: 'Aplicação de calendário e agendamento interativo com interface responsiva, gerenciamento dinâmico de eventos, controle de estados e navegação fluida.'
     },
-    tags: ['TypeScript', 'Next.js', 'PHP', 'Oracle SQL', 'PostgreSQL'],
-    href: 'https://github.com/antoniobouneto',
-    codeHref: 'https://github.com/antoniobouneto',
+    tags: ['TypeScript', 'React.js', 'Next.js', 'TailwindCSS'],
+    codeHref: 'https://github.com/antoniobouneto/calendar-app',
     featured: true
   },
   {
-    id: 'java-spring-api',
-    title: 'Java Spring Boot REST API',
+    id: 'dotnet-pagamentos',
+    title: '.NET Payment Management System',
     description: {
-      EN: 'Scalable backend REST API built with Java and Spring Boot implementing OOP principles, data persistence, and clean architecture.',
-      PT: 'API REST backend escalável desenvolvida em Java com Spring Boot, aplicando princípios de POO, persistência de dados e arquitetura limpa.'
+      EN: 'Payment processing and financial management system built with C# and .NET, focusing on transaction integrity, business rule validation, and scalable architecture.',
+      PT: 'Sistema de processamento e gestão de pagamentos desenvolvido em C# e .NET, focado em segurança de transações, validação de regras de negócio e arquitetura escalável.'
     },
-    tags: ['Java', 'Spring Boot', 'REST API', 'SQL'],
-    href: 'https://github.com/antoniobouneto',
-    codeHref: 'https://github.com/antoniobouneto',
+    tags: ['C#', '.NET', 'REST API', 'SQL', 'Clean Architecture'],
+    codeHref: 'https://github.com/antoniobouneto/.NET_pagamentos',
     featured: true
   }
 ];

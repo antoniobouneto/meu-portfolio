@@ -12,7 +12,7 @@ export interface Project {
     PT: string;
   };
   tags: string[];
-  href: string;
+  href?: string;
   codeHref?: string;
   featured?: boolean;
 }

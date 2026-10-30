@@ -11,9 +11,10 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://antonio-boucinhas.vercel.app'),
   title: 'Antonio Boucinhas Neto | Portfólio de Desenvolvedor Full Stack',
   description:
-    'Desenvolvedor Full Stack | Next.js, TypeScript, Java, Spring Boot, PHP, Oracle SQL & PostgreSQL.',
+    'Portfólio de Antonio Boucinhas Neto. Desenvolvedor Full Stack atuando com TypeScript, Next.js, Java Spring Boot, PHP, C# .NET e bancos de dados Oracle SQL e PostgreSQL.',
   keywords: [
     'Antonio Boucinhas Neto',
     'Portfólio de Desenvolvedor',
@@ -23,8 +24,36 @@ export const metadata: Metadata = {
     'PHP',
     'Java',
     'Spring Boot',
+    'C#',
+    '.NET',
     'Teknisa'
   ],
+  authors: [{ name: 'Antonio Boucinhas Neto', url: 'https://github.com/antoniobouneto' }],
+  creator: 'Antonio Boucinhas Neto',
+  openGraph: {
+    title: 'Antonio Boucinhas Neto | Portfólio de Desenvolvedor Full Stack',
+    description:
+      'Portfólio de Antonio Boucinhas Neto. Desenvolvedor Full Stack atuando com TypeScript, Next.js, Java Spring Boot, PHP, C# .NET e bancos de dados Oracle SQL e PostgreSQL.',
+    url: 'https://antonio-boucinhas.vercel.app',
+    siteName: 'Antonio Boucinhas Neto | Portfólio',
+    locale: 'pt_BR',
+    type: 'website',
+    images: [
+      {
+        url: '/images/developer.png',
+        width: 1200,
+        height: 630,
+        alt: 'Antonio Boucinhas Neto | Desenvolvedor Full Stack',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Antonio Boucinhas Neto | Portfólio de Desenvolvedor Full Stack',
+    description:
+      'Portfólio de Antonio Boucinhas Neto. Desenvolvedor Full Stack atuando com TypeScript, Next.js, Java Spring Boot, PHP, C# .NET e bancos de dados Oracle SQL e PostgreSQL.',
+    images: ['/images/developer.png'],
+  },
 };
 
 export default function RootLayout({
@@ -34,7 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="pt-BR"
       suppressHydrationWarning
       className={`${geistSans.variable} dark scroll-smooth h-full antialiased`}
     >

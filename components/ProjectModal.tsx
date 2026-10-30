@@ -53,27 +53,43 @@ export default function ProjectModal() {
         </div>
 
         <div className="pt-4 border-t border-border-subtle flex gap-4">
-          <a
-            href={selectedProject.href}
-            target="_blank"
-            rel="noreferrer"
-            className="flex-1 bg-on-surface text-background font-medium py-2.5 rounded-lg text-center text-xs uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer"
-          >
-            <ExternalLink className="w-4 h-4" />
-            <span>Visit Live Project</span>
-          </a>
+          {selectedProject.href &&
+          selectedProject.href !== '#' &&
+          selectedProject.href !== selectedProject.codeHref ? (
+            <>
+              <a
+                href={selectedProject.href}
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 bg-on-surface text-background font-medium py-2.5 rounded-lg text-center text-xs uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span>{language === 'EN' ? 'Visit Live Project' : 'Ver Demonstração'}</span>
+              </a>
 
-          {selectedProject.codeHref && (
+              {selectedProject.codeHref && (
+                <a
+                  href={selectedProject.codeHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-4 border border-border-subtle text-on-surface font-medium py-2.5 rounded-lg text-xs uppercase tracking-wider hover:border-primary hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                  <span>{language === 'EN' ? 'Source' : 'Código'}</span>
+                </a>
+              )}
+            </>
+          ) : selectedProject.codeHref ? (
             <a
               href={selectedProject.codeHref}
               target="_blank"
               rel="noreferrer"
-              className="px-4 border border-border-subtle text-on-surface font-medium py-2.5 rounded-lg text-xs uppercase tracking-wider hover:border-primary hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+              className="flex-1 bg-on-surface text-background font-medium py-2.5 rounded-lg text-center text-xs uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer"
             >
               <GithubIcon className="w-4 h-4" />
-              <span>Source</span>
+              <span>{language === 'EN' ? 'View Source Code on GitHub' : 'Ver Código no GitHub'}</span>
             </a>
-          )}
+          ) : null}
         </div>
 
       </div>

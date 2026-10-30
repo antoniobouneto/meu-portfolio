@@ -40,21 +40,25 @@ export default function ProjectsSection() {
                         rel="noreferrer"
                         onClick={(e) => e.stopPropagation()}
                         className="hover:text-on-surface transition-colors p-1"
-                        title="Source Code"
+                        title={language === 'EN' ? 'Source Code' : 'Código Fonte no GitHub'}
                       >
                         <GithubIcon className="w-4 h-4" />
                       </a>
                     )}
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="hover:text-on-surface transition-colors p-1"
-                      title="Open Live"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
+                    {project.href &&
+                      project.href !== '#' &&
+                      project.href !== project.codeHref && (
+                        <a
+                          href={project.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="hover:text-on-surface transition-colors p-1"
+                          title={language === 'EN' ? 'Open Live Demo' : 'Ver Demonstração'}
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      )}
                   </div>
                 </div>
 
