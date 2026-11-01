@@ -17,15 +17,35 @@ export default function ContactSection() {
   const [sent, setSent] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [isHuman, setIsHuman] = useState(false);
+  const [website, setWebsite] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !message || loading) return;
 
-    // Input validation
     const trimmedMessage = message.trim();
     const trimmedEmail = email.trim();
 
+    if (!isHuman) {
+      setErrorMessage(
+        language === 'EN'
+          ? 'Please confirm you are not a robot before sending the message.'
+          : 'Confirme que você não é um robô antes de enviar a mensagem.'
+      );
+      return;
+    }
+
+    if (website) {
+      setErrorMessage(
+        language === 'EN'
+          ? 'Submission rejected. Please try again.'
+          : 'Envio rejeitado. Tente novamente.'
+      );
+      return;
+    }
+
+    // Input validation
     if (trimmedMessage.length < 10) {
       setErrorMessage(
         language === 'EN'
@@ -47,7 +67,6 @@ export default function ContactSection() {
     setErrorMessage('');
 
     try {
-      // Call protected API route with Valkey/Redis rate-limiting
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -56,6 +75,8 @@ export default function ContactSection() {
         body: JSON.stringify({
           email: trimmedEmail,
           message: trimmedMessage,
+          human: isHuman,
+          website,
         }),
       });
 
@@ -96,6 +117,8 @@ export default function ContactSection() {
 
       setEmail('');
       setMessage('');
+      setIsHuman(false);
+      setWebsite('');
       setTimeout(() => setSent(false), 6000);
     } catch (err: unknown) {
       console.warn('Contact API error:', err);
@@ -118,13 +141,12 @@ export default function ContactSection() {
         {t.contact.subtitle}
       </p>
 
-      {/* Social Button Row */}
       <div className="flex justify-center gap-4 pt-4">
         <a
           href={personalInfo.socials.github}
           target="_blank"
           rel="noreferrer"
-          className="p-3 rounded-full bg-surface-container-low hover:bg-surface-container border border-border-subtle hover:border-primary text-on-surface hover:text-primary transition-all cursor-pointer active:scale-95"
+          className="p-3 rounded-full bg-surface-container-low hover:bg-surface-container border border-border-subtle hover:border-primary text-on-surface hover:text-primary transition-all cursor-pointer"
           title="GitHub"
         >
           <GithubIcon className="w-5 h-5" />
@@ -134,7 +156,7 @@ export default function ContactSection() {
           href={personalInfo.socials.linkedin}
           target="_blank"
           rel="noreferrer"
-          className="p-3 rounded-full bg-surface-container-low hover:bg-surface-container border border-border-subtle hover:border-primary text-on-surface hover:text-primary transition-all cursor-pointer active:scale-95"
+          className="p-3 rounded-full bg-surface-container-low hover:bg-surface-container border border-border-subtle hover:border-primary text-on-surface hover:text-primary transition-all cursor-pointer"
           title="LinkedIn"
         >
           <LinkedinIcon className="w-5 h-5" />
@@ -147,7 +169,7 @@ export default function ContactSection() {
             setCopiedEmail(true);
             setTimeout(() => setCopiedEmail(false), 2500);
           }}
-          className="p-3 rounded-full bg-surface-container-low hover:bg-surface-container border border-border-subtle hover:border-primary text-on-surface hover:text-primary transition-all cursor-pointer active:scale-95 relative group/mail"
+          className="group relative p-3 rounded-full bg-surface-container-low hover:bg-surface-container border border-border-subtle hover:border-primary text-on-surface hover:text-primary transition-all cursor-pointer"
           title={copiedEmail ? (language === 'EN' ? 'Copied!' : 'Copiado!') : 'Email'}
         >
           <Mail className={`w-5 h-5 ${copiedEmail ? 'text-emerald-500' : ''}`} />
@@ -159,7 +181,6 @@ export default function ContactSection() {
         </button>
       </div>
 
-      {/* Direct Contact Form */}
       <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-3 pt-6 text-left">
         <input
           type="email"
@@ -168,7 +189,7 @@ export default function ContactSection() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder={t.contact.emailPlaceholder || 'Seu E-mail'}
-          className="w-full bg-surface-card border border-border-subtle rounded-lg px-4 py-3 text-sm text-on-surface focus:border-primary outline-none transition-all placeholder:text-text-muted disabled:opacity-50"
+          className="w-full bg-surface-card border border-border-subtle rounded-lg px-4 py-3 text-sm text-on-surface focus:border-primary outline-none transition-all placeholder:text-text-muted"
         />
         <textarea
           rows={3}
@@ -177,8 +198,34 @@ export default function ContactSection() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder={t.contact.messagePlaceholder || 'Sua Mensagem...'}
-          className="w-full bg-surface-card border border-border-subtle rounded-lg px-4 py-3 text-sm text-on-surface focus:border-primary outline-none transition-all placeholder:text-text-muted resize-none disabled:opacity-50"
+          className="w-full bg-surface-card border border-border-subtle rounded-lg px-4 py-3 text-sm text-on-surface focus:border-primary outline-none transition-all placeholder:text-text-muted resize-none"
         />
+
+        <input
+          type="text"
+          name="website"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+          className="hidden"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
+
+        <label className="flex items-start gap-3 text-xs text-on-surface-variant cursor-pointer select-none">
+          <input
+            type="checkbox"
+            checked={isHuman}
+            onChange={(e) => setIsHuman(e.target.checked)}
+            disabled={loading}
+            className="mt-0.5 h-4 w-4 rounded border-border-subtle text-primary focus:ring-primary"
+          />
+          <span>
+            {language === 'EN'
+              ? 'I confirm I am not a robot.'
+              : 'Confirmo que não sou um robô.'}
+          </span>
+        </label>
 
         {sent && (
           <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-500 text-xs font-medium flex items-center gap-2 animate-fade-in">
@@ -197,7 +244,7 @@ export default function ContactSection() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3 rounded-lg bg-on-surface text-background font-semibold text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full py-3 rounded-lg bg-on-surface text-background font-semibold text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center justify-center gap-2 cursor-pointer"
         >
           {loading ? (
             <>
@@ -212,17 +259,15 @@ export default function ContactSection() {
           )}
         </button>
 
-        {/* Rate Limiting / Cache Badge */}
         <div className="text-[11px] text-text-muted flex items-center justify-center gap-1.5 pt-2">
           <ShieldCheck className="w-3.5 h-3.5 text-primary shrink-0" />
           <span>
             {language === 'EN'
-              ? 'Protected by Valkey / Redis rate-limiting cache'
-              : 'Protegido por rate limiting com cache Valkey / Redis'}
+              ? 'Protected by spam checks and rate limiting'
+              : 'Protegido por verificações anti-spam e rate limiting'}
           </span>
         </div>
       </form>
     </section>
   );
 }
-
