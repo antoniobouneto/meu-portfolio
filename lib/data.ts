@@ -7,8 +7,8 @@ export const personalInfo = {
     PT: 'Desenvolvedor Full Stack'
   },
   about: {
-    EN: 'I work as a Full Stack Developer at Teknisa, contributing to the development and maintenance of web applications with TypeScript/JavaScript, PHP, and the Zeedhi-next framework. My work includes implementing business rules, building interfaces, and contributing to database migrations from Oracle SQL to PostgreSQL.\n\nTechnologies I work with:\n• Front-end: TypeScript, JavaScript, React.js, Next.js, HTML, and CSS.\n• Back-end: PHP, Java with Spring Boot, C#, and .NET.\n• Databases: Oracle SQL, PostgreSQL, and PL/SQL.\n\nI am pursuing a degree in Computer Science and continue to develop my skills through practical projects and collaboration.',
-    PT: 'Atuo como Desenvolvedor Full Stack na Teknisa, contribuindo para o desenvolvimento e a manutenção de aplicações web com TypeScript/JavaScript, PHP e o framework Zeedhi-next. Meu trabalho inclui implementar regras de negócio, construir interfaces e colaborar na migração de bancos de dados Oracle SQL para PostgreSQL.\n\nPrincipais tecnologias com as quais trabalho:\n• Front-end: TypeScript, JavaScript, React.js, Next.js, HTML e CSS.\n• Back-end: PHP, Java com Spring Boot, C# e .NET.\n• Banco de dados: Oracle SQL, PostgreSQL e PL/SQL.\n\nEstou cursando Ciência da Computação e sigo desenvolvendo minhas habilidades por meio de projetos práticos e colaboração em equipe.'
+    EN: 'I work as a Full Stack Developer at Teknisa, contributing to the development and maintenance of web applications with TypeScript/JavaScript, PHP, and the Zeedhi-next framework. My work includes implementing business rules, building interfaces, and contributing to database migrations from Oracle SQL to PostgreSQL.\n\nTechnologies I work with:\n• Front end: TypeScript, JavaScript, React.js, Next.js, HTML, and CSS.\n• Back end: PHP at work; Java with Spring Boot and C#/.NET in personal projects.\n• Databases: Oracle SQL, PostgreSQL, and PL/SQL.\n\nI also have experience integrating REST APIs, refactoring legacy code, and working with agile methodologies (Scrum and Kanban). I am studying Computer Science and use personal projects to practice and build on what I learn at work.',
+    PT: 'Atuo como Desenvolvedor Full Stack na Teknisa, contribuindo para o desenvolvimento e a manutenção de aplicações web com TypeScript/JavaScript, PHP e o framework Zeedhi-next. Meu trabalho inclui implementar regras de negócio, construir interfaces e colaborar na migração de bancos de dados Oracle SQL para PostgreSQL.\n\nPrincipais tecnologias com as quais trabalho:\n• Front-end: TypeScript, JavaScript, React.js, Next.js, HTML e CSS\n• Back-end: PHP (no trabalho); Java com Spring Boot e C#/.NET (projetos pessoais)\n• Banco de dados: Oracle SQL, PostgreSQL e PL/SQL\n\nTambém tenho experiência com integração de APIs REST, refatoração de código legado e metodologias ágeis (Scrum e Kanban). Estou cursando Ciência da Computação e uso projetos pessoais para praticar e ampliar o que aprendo no trabalho.'
   },
   avatar: '/images/eu.png',
   resumeUrl: '#',
@@ -95,7 +95,7 @@ export const projectsData: Project[] = [
       EN: 'A C#/.NET project for payment management, with business-rule validation. See the repository for implementation details.',
       PT: 'Projeto em C#/.NET para gerenciamento de pagamentos, com validação de regras de negócio. Consulte o repositório para ver os detalhes da implementação.'
     },
-    tags: ['C#', '.NET', 'REST API', 'SQL', 'Clean Architecture'],
+    tags: ['C#', '.NET', 'REST API', 'SQL'],
     codeHref: 'https://github.com/antoniobouneto/.NET_pagamentos',
     featured: true
   }
