@@ -43,6 +43,18 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
+/* Keep the brand mark and desktop resume action at their pre-token appearance. */
+nav.fixed.top-0.w-full > div > a[aria-label="Home"] > span {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--on-surface);
+}
+
+nav.fixed.top-0.w-full > div > div > button.hidden {
+  background-color: transparent;
+  color: var(--on-surface);
+}
+
 /* Custom Glass, Bento & Section Frame Utilities */
 .section-frame {
   background-color: var(--surface-card);
