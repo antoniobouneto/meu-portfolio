@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@theme inline {
+  --color-background: var(--background);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-surface-card: var(--surface-card);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-border-subtle: var(--border-subtle);
+  --color-primary: var(--primary);
+  --color-text-muted: var(--text-muted);
+}
+
 @layer base {
   :root {
     --background: #f8fafc;
@@ -31,7 +42,6 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-/* Custom Glass, Bento & Section Frame Utilities */
 .section-frame {
   background-color: var(--surface-card);
   border: 1px solid var(--border-subtle);
@@ -100,7 +110,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
