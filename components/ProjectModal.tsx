@@ -25,13 +25,19 @@ export default function ProjectModal() {
   const desc = selectedProject.description[language];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-      <div className="bg-surface-card border border-border-subtle rounded-2xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl space-y-6">
-        
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn"
+      onClick={() => setSelectedProject(null)}
+    >
+      <div
+        className="bg-surface-card border border-border-subtle rounded-2xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl space-y-6"
+        onClick={(event) => event.stopPropagation()}
+      >
         {/* Close button */}
         <button
           onClick={() => setSelectedProject(null)}
           className="absolute top-4 right-4 p-2 rounded-full bg-surface-container-low text-text-muted hover:text-on-surface transition-colors cursor-pointer"
+          aria-label={language === 'EN' ? 'Close project details' : 'Fechar detalhes do projeto'}
         >
           <X className="w-5 h-5" />
         </button>
@@ -61,7 +67,7 @@ export default function ProjectModal() {
                 href={selectedProject.href}
                 target="_blank"
                 rel="noreferrer"
-                className="flex-1 bg-on-surface text-background font-medium py-2.5 rounded-lg text-center text-xs uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer"
+                className="flex-1 bg-on-surface text-background font-medium py-2.5 rounded-lg text-center text-xs uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
               >
                 <ExternalLink className="w-4 h-4" />
                 <span>{language === 'EN' ? 'Visit Live Project' : 'Ver Demonstração'}</span>
@@ -72,7 +78,7 @@ export default function ProjectModal() {
                   href={selectedProject.codeHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-4 border border-border-subtle text-on-surface font-medium py-2.5 rounded-lg text-xs uppercase tracking-wider hover:border-primary hover:text-primary transition-colors flex items-center gap-2 cursor-pointer"
+                  className="px-4 border border-border-subtle text-on-surface font-medium py-2.5 rounded-lg text-xs uppercase tracking-wider hover:border-primary hover:text-primary transition-colors flex items-center gap-2"
                 >
                   <GithubIcon className="w-4 h-4" />
                   <span>{language === 'EN' ? 'Source' : 'Código'}</span>
@@ -84,14 +90,13 @@ export default function ProjectModal() {
               href={selectedProject.codeHref}
               target="_blank"
               rel="noreferrer"
-              className="flex-1 bg-on-surface text-background font-medium py-2.5 rounded-lg text-center text-xs uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center justify-center gap-2 cursor-pointer"
+              className="flex-1 bg-on-surface text-background font-medium py-2.5 rounded-lg text-center text-xs uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
             >
               <GithubIcon className="w-4 h-4" />
               <span>{language === 'EN' ? 'View Source Code on GitHub' : 'Ver Código no GitHub'}</span>
             </a>
           ) : null}
         </div>
-
       </div>
     </div>
   );
