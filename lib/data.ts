@@ -7,8 +7,8 @@ export const personalInfo = {
     PT: 'Desenvolvedor Full Stack'
   },
   about: {
-    EN: 'I work as a Full Stack Developer at Teknisa, contributing to the development and maintenance of web applications with TypeScript/JavaScript, PHP, and the Zeedhi-next framework. My work includes implementing business rules, building interfaces, and contributing to database migrations from Oracle SQL to PostgreSQL.\n\nTechnologies I work with:\n• Front end: TypeScript, JavaScript, React.js, Next.js, HTML, and CSS.\n• Back end: PHP at work; Java with Spring Boot and C#/.NET in personal projects.\n• Databases: Oracle SQL, PostgreSQL, and PL/SQL.\n\nI also have experience integrating REST APIs, refactoring legacy code, and working with agile methodologies (Scrum and Kanban). I am studying Computer Science and use personal projects to practice and build on what I learn at work.',
-    PT: 'Atuo como Desenvolvedor Full Stack na Teknisa, contribuindo para o desenvolvimento e a manutenção de aplicações web com TypeScript/JavaScript, PHP e o framework Zeedhi-next. Meu trabalho inclui implementar regras de negócio, construir interfaces e colaborar na migração de bancos de dados Oracle SQL para PostgreSQL.\n\nPrincipais tecnologias com as quais trabalho:\n• Front-end: TypeScript, JavaScript, React.js, Next.js, HTML e CSS\n• Back-end: PHP (no trabalho); Java com Spring Boot e C#/.NET (projetos pessoais)\n• Banco de dados: Oracle SQL, PostgreSQL e PL/SQL\n\nTambém tenho experiência com integração de APIs REST, refatoração de código legado e metodologias ágeis (Scrum e Kanban). Estou cursando Ciência da Computação e uso projetos pessoais para praticar e ampliar o que aprendo no trabalho.'
+    EN: 'I work as a Full Stack Developer at Teknisa, developing enterprise web applications with the Zeedhi-next framework. On a daily basis, I build dynamic and intuitive interfaces using TypeScript and JavaScript, integrated with PHP backends and Oracle SQL / PostgreSQL databases. My focus is on creating dynamic screens, data grids, advanced filters, and implementing business logic with strong UI/UX standards.\n\nKey Technologies:\n• Frontend: TypeScript, JavaScript, React.js, Next.js, HTML5, CSS.\n• Backend: PHP, Java Spring Boot, C#, .NET.\n• Database: Oracle SQL, PostgreSQL, PL/SQL.\n\nPractical experience with REST API integration, JSON data handling, legacy code refactoring, and Agile methodologies (Scrum and Kanban). Currently pursuing a Bachelor degree in Computer Science at Escola Superior Dom Helder Câmara (expected graduation 2028) with technical IT degree from COTEMIG.',
+    PT: 'Atuo como Desenvolvedor Full Stack na Teknisa, onde trabalho no desenvolvimento e manutenção de sistemas corporativos com o framework Zeedhi-next. No dia a dia, construo interfaces dinâmicas e intuitivas usando TypeScript e JavaScript, integradas a back-ends em PHP e bancos Oracle SQL / PostgreSQL. Foco na criação de telas interativas, grids dinâmicos, filtros avançados e implementação de regras de negócio com atenção à experiência do usuário (UI/UX).\n\nPrincipais tecnologias com as quais trabalho:\n• Front-end: TypeScript, JavaScript, React.js, Next.js, HTML5 e CSS.\n• Back-end: PHP, Java Spring Boot, C# e .NET.\n• Banco de Dados: Oracle SQL e PostgreSQL, modelagem de dados e PL/SQL.\n\nExperiência prática com integração de APIs REST, manipulação de JSON, refatoração de código e rotinas em equipes ágeis (Scrum e Kanban). Sou graduando em Ciência da Computação pela Escola Superior Dom Helder Câmara (previsão 2028) e tenho formação técnica em TI pelo COTEMIG.'
   },
   avatar: '/images/eu.png',
   resumeUrl: '#',
@@ -35,32 +35,34 @@ export const skillsList = [
   'REST APIs',
   'Git & GitHub',
   'TailwindCSS',
-  'HTML5 / CSS3'
+  'HTML5 / CSS3',
+  'AWS Cloud',
+  'Python'
 ];
 
 export const experienceData: ExperienceItem[] = [
   {
     company: 'Teknisa',
     role: {
-      EN: 'Full Stack Software Developer',
+      EN: 'Full Stack Software Developer ',
       PT: 'Desenvolvedor Full Stack'
     },
     period: 'Out 2025 - Presente',
     description: {
-      EN: 'Develop and maintain corporate web applications using TypeScript/JavaScript on the frontend and PHP on the backend with Zeedhi-next. Implement business rules, REST APIs, and dynamic forms, and contribute to database migrations from Oracle SQL to PostgreSQL.',
-      PT: 'Atuo no desenvolvimento e na manutenção de aplicações web corporativas com TypeScript/JavaScript no frontend e PHP no backend, utilizando o framework Zeedhi-next. Implemento regras de negócio, APIs REST e formulários dinâmicos, além de colaborar na migração de bancos de dados de Oracle SQL para PostgreSQL.'
+      EN: 'Development, maintenance, and conversion of enterprise web applications using TypeScript/JavaScript on the frontend and PHP on the backend (Zeedhi-next). Delivered dynamic forms, reports, and validation routines, while collaborating on adapting database queries during the Oracle SQL to PostgreSQL migration.',
+      PT: 'Atuo no desenvolvimento, manutenção e conversão de telas corporativas utilizando TypeScript/JavaScript no front-end e PHP no back-end (Zeedhi-next). Responsável pela entrega de formulários dinâmicos, relatórios e rotinas de validação de regras de negócio, além de colaborar na adaptação de consultas durante a migração de Oracle SQL para PostgreSQL.',
     }
   },
   {
-    company: 'Automaton',
+    company: 'ATMC Consultoria e Engenharia',
     role: {
-      EN: 'IT Support Technician Intern',
+      EN: 'IT Support Technician (Intern)',
       PT: 'Técnico de TI (Estágio)'
     },
-    period: 'Fev 2022 - Out 2022',
+    period: 'Jan 2022 - Out 2022',
     description: {
-      EN: 'Preventive maintenance and infrastructure support for internal users, workstation setup, and data backup routines.',
-      PT: 'Manutenção preventiva e suporte de infraestrutura para usuários internos, preparação de estações de trabalho e rotinas de backup de dados.'
+      EN: 'Preventive maintenance on servers and computers, user technical support, workstation onboarding, and implementation of data backup routines.',
+      PT: 'Manutenção preventiva em servidores e computadores, suporte técnico personalizado a usuários, preparação de estações de trabalho e implementação de rotinas de backup de dados.'
     }
   }
 ];
@@ -70,8 +72,8 @@ export const projectsData: Project[] = [
     id: 'java-next',
     title: 'Java & Next.js Full Stack App',
     description: {
-      EN: 'A full-stack project combining a Next.js frontend with a Java Spring Boot backend and REST API communication.',
-      PT: 'Projeto full stack que combina um frontend em Next.js com um backend em Java Spring Boot e comunicação por API REST.'
+      EN: 'Full-stack enterprise application integrating a modern Next.js frontend with a robust Java Spring Boot backend, featuring REST API communication, type safety, and clean architecture.',
+      PT: 'Aplicação full stack integrando front-end moderno em Next.js com back-end em Java Spring Boot, com consumo de APIs REST, tipagem estrita e arquitetura limpa.'
     },
     tags: ['Java', 'Spring Boot', 'Next.js', 'TypeScript', 'REST API'],
     codeHref: 'https://github.com/antoniobouneto/java-next',
@@ -81,8 +83,8 @@ export const projectsData: Project[] = [
     id: 'calendar-app',
     title: 'Calendar & Scheduling App',
     description: {
-      EN: 'A calendar and scheduling app with a responsive interface and event management features.',
-      PT: 'Aplicação de calendário e agendamento com interface responsiva e funcionalidades de gerenciamento de eventos.'
+      EN: 'Interactive calendar and scheduling application with responsive UI, dynamic event management, intuitive state handling, and seamless user experience.',
+      PT: 'Aplicação de calendário e agendamento interativo com interface responsiva, gerenciamento dinâmico de eventos, controle de estados e navegação fluida.'
     },
     tags: ['TypeScript', 'React.js', 'Next.js', 'TailwindCSS'],
     codeHref: 'https://github.com/antoniobouneto/calendar-app',
@@ -92,10 +94,10 @@ export const projectsData: Project[] = [
     id: 'dotnet-pagamentos',
     title: '.NET Payment Management System',
     description: {
-      EN: 'A C#/.NET project for payment management, with business-rule validation. See the repository for implementation details.',
-      PT: 'Projeto em C#/.NET para gerenciamento de pagamentos, com validação de regras de negócio. Consulte o repositório para ver os detalhes da implementação.'
+      EN: 'Payment management and simulation API built with C# and .NET, featuring RESTful endpoints for transaction records, queries, and business rule validations with data persistence.',
+      PT: 'API de gestão e simulação de pagamentos desenvolvida em C# e .NET, com endpoints RESTful para registro, consulta e validação de regras de negócio financeiras com persistência de dados.',
     },
-    tags: ['C#', '.NET', 'REST API', 'SQL'],
+    tags: ['C#', '.NET', 'REST API', 'SQL', 'Clean Architecture'],
     codeHref: 'https://github.com/antoniobouneto/.NET_pagamentos',
     featured: true
   }
@@ -105,7 +107,7 @@ export const educationData: EducationItem[] = [
   {
     school: 'Escola Superior Dom Helder Câmara',
     degree: {
-      EN: 'Bachelor of Computer Science',
+      EN: 'Bachelor of Computer Science (BS)',
       PT: 'Bacharelado em Ciência da Computação'
     },
     period: '2024 - 2028 (Previsão)'
@@ -116,7 +118,7 @@ export const educationData: EducationItem[] = [
       EN: 'Technical Diploma in Systems Development',
       PT: 'Técnico em Informática / Desenvolvimento de Sistemas'
     },
-    period: 'Fev 2021 - Dez 2022'
+    period: '2020 - 2022'
   }
 ];
 
@@ -146,21 +148,21 @@ export const translations = {
     },
     projects: {
       title: 'Featured Projects',
-      subtitle: 'A selection of my recent projects'
+      subtitle: 'Check out some of my recent work and certifications'
     },
     education: {
       title: 'Education & Qualifications'
     },
     contact: {
       title: 'Get in Touch',
-      subtitle: "Interested in working together or have a question? Feel free to reach out and I'll respond as soon as possible.",
+      subtitle: "Interested in working together or have a query? Feel free to reach out and I'll respond as soon as possible.",
       sendBtn: 'Send Message',
-      emailPlaceholder: 'Your email address',
-      messagePlaceholder: 'Your message...',
+      emailPlaceholder: 'Your Email address',
+      messagePlaceholder: 'Your Message...',
       successMsg: 'Message processed! Opening your email app to send...'
     },
     footer: {
-      copyright: '© 2026 Antonio Boucinhas Neto.',
+      copyright: '© 2026 Antonio Boucinhas Neto. Built with precision.',
       github: 'GitHub',
       linkedin: 'LinkedIn',
       email: 'Email'
@@ -190,8 +192,8 @@ export const translations = {
       title: 'Experiência Profissional'
     },
     projects: {
-      title: 'Projetos em Destaque',
-      subtitle: 'Conheça alguns dos meus projetos recentes'
+      title: 'Projetos & Destaques',
+      subtitle: 'Confira meus trabalhos mais recentes e certificações'
     },
     education: {
       title: 'Formação Acadêmica'
@@ -200,12 +202,12 @@ export const translations = {
       title: 'Entrar em Contato',
       subtitle: 'Quer conversar ou propor uma oportunidade? Mande uma mensagem e responderei o mais rápido possível.',
       sendBtn: 'Enviar Mensagem',
-      emailPlaceholder: 'Seu e-mail',
-      messagePlaceholder: 'Sua mensagem...',
+      emailPlaceholder: 'Seu E-mail',
+      messagePlaceholder: 'Sua Mensagem...',
       successMsg: 'Mensagem pronta! Abrindo seu aplicativo de e-mail...'
     },
     footer: {
-      copyright: '© 2026 Antonio Boucinhas Neto.',
+      copyright: '© 2026 Antonio Boucinhas Neto. Construído com precisão.',
       github: 'GitHub',
       linkedin: 'LinkedIn',
       email: 'E-mail'
