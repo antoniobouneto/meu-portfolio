@@ -25,7 +25,7 @@ export default function Navbar() {
           className="flex items-center gap-2 group cursor-pointer"
           aria-label="Home"
         >
-          <span className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 text-primary flex items-center justify-center font-bold text-xs tracking-wider group-hover:bg-primary group-hover:text-background transition-all shadow-xs">
+          <span className="w-8 h-8 rounded-full bg-blue-100 border border-blue-200 text-blue-700 flex items-center justify-center font-bold text-xs tracking-wider group-hover:bg-blue-600 group-hover:text-white transition-colors">
             AB
           </span>
         </a>
@@ -96,7 +96,7 @@ export default function Navbar() {
           {/* Resume Button */}
           <button
             onClick={() => setIsResumeModalOpen(true)}
-            className="bg-on-surface text-background font-medium text-sm px-4 py-2 rounded-lg hover:opacity-90 transition-opacity hidden md:flex items-center gap-2 cursor-pointer"
+            className="bg-slate-900 text-white font-medium text-sm px-4 py-2 rounded-lg hover:bg-slate-800 transition-colors hidden md:flex items-center gap-2 cursor-pointer"
           >
             <FileText className="w-4 h-4" />
             <span>{t.nav.resume}</span>
@@ -130,7 +130,7 @@ export default function Navbar() {
               setMobileMenuOpen(false);
               setIsResumeModalOpen(true);
             }}
-            className="w-full mt-2 bg-on-surface text-background font-medium py-2 rounded-lg text-center flex items-center justify-center gap-2"
+            className="w-full mt-2 bg-slate-900 text-white font-medium py-2 rounded-lg text-center flex items-center justify-center gap-2"
           >
             <FileText className="w-4 h-4" />
             <span>{t.nav.resume}</span>
