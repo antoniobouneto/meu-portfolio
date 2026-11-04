@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Expose the app's semantic color tokens as Tailwind utilities (e.g. bg-surface-card). */
 @theme inline {
   --color-background: var(--background);
   --color-on-surface: var(--on-surface);
@@ -43,21 +42,6 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-/* Preserve the light-blue circular brand mark without a blue outline. */
-nav.fixed.top-0.w-full > div > div > a[aria-label="Home"] > span {
-  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
-  border-color: transparent;
-  border-radius: 9999px;
-  color: var(--primary);
-}
-
-/* Keep the resume action dark with white text in either theme. */
-nav.fixed.top-0.w-full > div > div > div > button.hidden {
-  background-color: #0f172a;
-  color: #ffffff;
-}
-
-/* Custom Glass, Bento & Section Frame Utilities */
 .section-frame {
   background-color: var(--surface-card);
   border: 1px solid var(--border-subtle);
@@ -126,7 +110,6 @@ nav.fixed.top-0.w-full > div > div > div > button.hidden {
   transform: translateY(-1px);
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
