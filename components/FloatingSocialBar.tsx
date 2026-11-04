@@ -78,7 +78,7 @@ export default function FloatingSocialBar() {
         <button
           onClick={handleScrollToContact}
           title={t.contact.title}
-          className="flex items-center justify-center p-2 sm:p-2.5 rounded-full bg-primary text-background hover:opacity-90 transition-all active:scale-95 shadow-sm cursor-pointer"
+          className="flex items-center justify-center p-2 sm:p-2.5 rounded-full text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all duration-200 active:scale-95 cursor-pointer"
           aria-label={t.contact.title}
         >
           <MessageSquare className="w-4 h-4 sm:w-4.5 sm:h-4.5" />

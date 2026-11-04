@@ -1,4 +1,4 @@
-import { Project, ExperienceItem, EducationItem } from './types';
+import { Project, ExperienceItem, EducationItem, CertificationItem } from './types';
 
 export const personalInfo = {
   name: 'Antonio Boucinhas Neto',
@@ -122,6 +122,45 @@ export const educationData: EducationItem[] = [
   }
 ];
 
+export const certificationsData: CertificationItem[] = [
+  {
+    name: 'AWS Academy Graduate - Cloud Foundations - Training Badge',
+    issuer: 'Amazon Web Services (AWS)',
+    issueDate: {
+      EN: 'November 2025',
+      PT: 'Novembro de 2025'
+    },
+    skills: ['Amazon Web Services', 'Amazon EC2']
+  },
+  {
+    name: 'Java Programming – English',
+    issuer: 'Oracle',
+    issueDate: {
+      EN: 'November 2025',
+      PT: 'Novembro de 2025'
+    },
+    skills: ['Desenvolvimento de software', 'Core Java']
+  },
+  {
+    name: 'JavaScript Essentials 2',
+    issuer: 'Cisco',
+    issueDate: {
+      EN: 'September 2025',
+      PT: 'Setembro de 2025'
+    },
+    skills: ['JavaScript']
+  },
+  {
+    name: 'JavaScript Essentials 1',
+    issuer: 'Cisco',
+    issueDate: {
+      EN: 'August 2025',
+      PT: 'Agosto de 2025'
+    },
+    skills: ['Desenvolvimento de software', 'Desenvolvimento front-end']
+  }
+];
+
 export const translations = {
   EN: {
     nav: {
@@ -152,6 +191,10 @@ export const translations = {
     },
     education: {
       title: 'Education & Qualifications'
+    },
+    certifications: {
+      title: 'Certifications',
+      subtitle: 'Check out my recent certifications and achievements'
     },
     contact: {
       title: 'Get in Touch',
@@ -197,6 +240,10 @@ export const translations = {
     },
     education: {
       title: 'Formação Acadêmica'
+    },
+    certifications: {
+      title: 'Certificações',
+      subtitle: 'Confira minhas certificações e conquistas recentes'
     },
     contact: {
       title: 'Entrar em Contato',

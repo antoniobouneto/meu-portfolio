@@ -39,3 +39,13 @@ export interface EducationItem {
   };
   period: string;
 }
+
+export interface CertificationItem {
+  name: string;
+  issuer: string;
+  issueDate: {
+    EN: string;
+    PT: string;
+  };
+  skills: string[];
+}

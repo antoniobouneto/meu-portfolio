@@ -2,9 +2,10 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import AboutSection from '@/components/AboutSection';
 import SkillsSection from '@/components/SkillsSection';
+import EducationSection from '@/components/EducationSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectsSection';
-import EducationSection from '@/components/EducationSection';
+import CertificationsSection from '@/components/CertificationsSection';
 import ContactSection from '@/components/ContactSection';
 import FloatingSocialBar from '@/components/FloatingSocialBar';
 
@@ -16,9 +17,10 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <SkillsSection />
+        <EducationSection />
         <ExperienceSection />
         <ProjectsSection />
-        <EducationSection />
+        <CertificationsSection />
         <ContactSection />
       </main>
       <FloatingSocialBar />
