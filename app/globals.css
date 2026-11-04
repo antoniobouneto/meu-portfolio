@@ -43,16 +43,18 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
 }
 
-/* Keep the brand mark and desktop resume action at their pre-token appearance. */
-nav.fixed.top-0.w-full > div > a[aria-label="Home"] > span {
-  background-color: transparent;
+/* Preserve the light-blue circular brand mark without a blue outline. */
+nav.fixed.top-0.w-full > div > div > a[aria-label="Home"] > span {
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
   border-color: transparent;
-  color: var(--on-surface);
+  border-radius: 9999px;
+  color: var(--primary);
 }
 
-nav.fixed.top-0.w-full > div > div > button.hidden {
-  background-color: transparent;
-  color: var(--on-surface);
+/* Keep the resume action dark with white text in either theme. */
+nav.fixed.top-0.w-full > div > div > div > button.hidden {
+  background-color: #0f172a;
+  color: #ffffff;
 }
 
 /* Custom Glass, Bento & Section Frame Utilities */
