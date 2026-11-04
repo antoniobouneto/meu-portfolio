@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* Expose the app's semantic color tokens as Tailwind utilities (e.g. bg-surface-card). */
+@theme inline {
+  --color-background: var(--background);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-surface-card: var(--surface-card);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-border-subtle: var(--border-subtle);
+  --color-primary: var(--primary);
+  --color-text-muted: var(--text-muted);
+}
+
 @layer base {
   :root {
     --background: #f8fafc;
