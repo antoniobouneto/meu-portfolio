@@ -15,6 +15,9 @@ export default function ExperienceSection() {
       <div className="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-border-subtle before:to-transparent">
         {experienceData.map((item, idx) => {
           const role = item.role[language];
+          const roleWithInternship = item.company === 'Teknisa'
+            ? `${role} (${language === 'EN' ? 'Intern' : 'Estágio'})`
+            : role;
           const desc = item.description?.[language];
 
           return (
@@ -23,7 +26,7 @@ export default function ExperienceSection() {
               className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
             >
               {/* Icon Node */}
-              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-border-subtle bg-surface-card text-on-surface-variant shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 group-hover:border-primary group-hover:text-primary transition-colors">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full border border-border-subtle bg-surface-card text-on-surface-variant shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                 <Briefcase className="w-4 h-4 text-primary" />
               </div>
 
@@ -33,7 +36,7 @@ export default function ExperienceSection() {
                   <h3 className="text-lg font-semibold text-on-surface">{item.company}</h3>
                   <span className="text-xs text-text-muted font-mono">{item.period}</span>
                 </div>
-                <p className="text-sm font-medium text-primary mb-2">{role}</p>
+                <p className="text-sm font-medium text-primary mb-2">{roleWithInternship}</p>
                 {desc && <p className="text-xs text-on-surface-variant leading-relaxed">{desc}</p>}
               </div>
             </div>
